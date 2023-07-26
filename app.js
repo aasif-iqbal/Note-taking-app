@@ -103,6 +103,31 @@ yargs.command({
     }
 });
 
+
+yargs.command({
+    command: 'update',
+    describe: "update title",
+    builder:{
+        title: {
+            describe:'note title..',
+            demandOption: true,
+            type:'string'
+        },
+        updateTitle:{
+            describe:'update note title..',
+            demandOption: true,
+            type:'string'
+        }       
+    },
+    handler(argv){
+        notes.updateNotes(argv.title, argv.updateTitle);        
+    }
+});
+
+
+
+
+
 yargs.parse();
 
 

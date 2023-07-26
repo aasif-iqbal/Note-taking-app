@@ -49,6 +49,23 @@ const removeNotes = (title) => {
     }
 }
 
+const updateNotes = (title, updateTitle) => {
+    // console.log(title);
+    // console.log(updateTitle);
+    const notes = loadNotes();
+
+    notes.forEach((note)=>{
+        if(note.title == title){
+            note.title = updateTitle;
+            console.log('title updated successfully');
+        }else{
+            return false;
+        }
+    });
+
+    saveNotes(notes);
+}
+
 const loadNotes = () => {
     
     try {
@@ -90,5 +107,6 @@ module.exports = {
     addNotes: addNotes,
     removeNotes: removeNotes,
     listNotes: listNotes,
+    updateNotes: updateNotes,
     readNotes: readNotes
 }
